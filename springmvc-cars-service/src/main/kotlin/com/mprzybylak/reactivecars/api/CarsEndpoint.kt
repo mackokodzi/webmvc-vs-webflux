@@ -8,7 +8,7 @@ import java.util.UUID
 @RestController
 class CarsEndpoint {
 
-    @PostMapping("/nomongo/delay/cars")
+    @PostMapping("/cars/delay")
     fun insertCarWithDelayWithoutMongo(): CarApi {
         logger.info("Inserting car with delay without mongo")
         Thread.sleep(DELAY)

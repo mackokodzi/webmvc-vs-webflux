@@ -6,6 +6,7 @@ import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatus.CREATED
+import org.springframework.stereotype.Component
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
@@ -13,13 +14,13 @@ import java.lang.RuntimeException
 import java.util.UUID
 
 @RestController
-class CarsEndpoint {
+class CarsEndpoint(private val carsRegistrationRepository: CarsRegistrationRepository) {
 
     @PostMapping("/cars")
     @ResponseStatus(CREATED)
     fun registerCar(): CarApi {
         logger.info("Registering car")
-        return CarApi(UUID.randomUUID().toString())
+        return carsRegistrationRepository.registerCar()
     }
 
     companion object {
@@ -27,8 +28,9 @@ class CarsEndpoint {
     }
 }
 
+@Component
 class CarsRegistrationRepository(
-    private val restTemplateBuilder: RestTemplateBuilder,
+    restTemplateBuilder: RestTemplateBuilder,
     @Value("\${services.cars.url}")
     private val url: String) {
 

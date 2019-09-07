@@ -17,7 +17,7 @@ class RegisterCarsLoadSimulation extends Simulation {
       .post(endpoint)
       .check(status.is(201)))
   }
-  private val scn = scenario("RegisteerCarsLoadSimulation")
+  private val scn = scenario("RegisterCarsLoadSimulation")
     .exec(registerCarTest)
 
   setUp(scn.inject(atOnceUsers(users))).protocols(httpConfig)

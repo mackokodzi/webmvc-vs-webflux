@@ -11,10 +11,10 @@ import java.util.UUID
 @RestController
 class CarsEndpoint {
 
-    @PostMapping("/cars/delay")
+    @PostMapping("/cars")
     @ResponseStatus(CREATED)
     fun insertCarWithDelayWithoutMongo(): CarApi {
-        logger.info("Inserting car with delay without mongo")
+        logger.info("Inserting car with delay $DELAY")
         Thread.sleep(DELAY)
         return CarApi(UUID.randomUUID().toString())
     }

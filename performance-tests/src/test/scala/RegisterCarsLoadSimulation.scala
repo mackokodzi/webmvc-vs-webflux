@@ -5,7 +5,7 @@ class RegisterCarsLoadSimulation extends Simulation {
 
   private val baseUrl = "http://localhost:8090"
   private val endpoint = "/cars"
-  private val requestCount = 5
+  private val requestCount = 3
 
   private val users = System.getProperty("USERS", "1").toInt
 

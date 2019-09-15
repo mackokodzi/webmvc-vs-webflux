@@ -20,6 +20,7 @@ class CarsEndpoint(private val carsRegistration: CarsRegistration) {
     fun registerCar(): Mono<CarApi> =
         Mono.fromCallable { logger.info("Registering car") }
             .flatMap { carsRegistration.registerCar() }
+            .doOnError { logger.error("Processing error $it") }
 
     companion object {
         val logger by logger()

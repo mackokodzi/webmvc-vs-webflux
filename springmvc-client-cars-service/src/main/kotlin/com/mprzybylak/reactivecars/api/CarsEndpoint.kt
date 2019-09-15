@@ -37,7 +37,7 @@ class CarsRegistrationRepository(
     private val restTemplate = restTemplateBuilder.build()
 
     fun registerCar() : CarApi =
-            restTemplate.postForEntity("$url/cars/delay", null, CarApi::class.java).body
+            restTemplate.postForEntity("$url/cars", null, CarApi::class.java).body
                 ?: throw RuntimeException("Body cannot be null")
 }
 

@@ -15,6 +15,7 @@ class CarsEndpoint {
     fun insertCarWithDelayWithoutMongo(): Mono<CarApi> {
         return Mono.fromCallable { logger.info("Inserting car with delay $DELAY") }
             .flatMap { Mono.just(CarApi(UUID.randomUUID().toString())) }
+            .doOnError { logger.error("Processing error $it") }
             .delaySubscription(Duration.ofMillis(DELAY))
     }
 

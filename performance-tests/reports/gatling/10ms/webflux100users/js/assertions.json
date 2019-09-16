@@ -1,0 +1,10 @@
+{
+  "simulation": "RegisterCarsLoadSimulation",
+  "simulationId": "registercarsloadsimulation",
+  "start": 1568664273410,
+  "description": "",
+  "scenarios": ["RegisterCarsLoadSimulation"],
+  "assertions": [
+
+  ]
+}

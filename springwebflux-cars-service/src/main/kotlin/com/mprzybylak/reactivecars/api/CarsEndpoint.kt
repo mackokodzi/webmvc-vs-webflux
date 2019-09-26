@@ -1,7 +1,6 @@
 package com.mprzybylak.reactivecars.api
 
 import com.mprzybylak.reactivecars.utils.logger
-import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono

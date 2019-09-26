@@ -1,7 +1,6 @@
 package com.mprzybylak.reactivecars.api
 
 import com.mprzybylak.reactivecars.utils.logger
-import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatus.CREATED
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.ResponseStatus

@@ -11,7 +11,7 @@ import java.util.UUID
 class CarsEndpoint {
 
     @PostMapping("/cars")
-    fun insertCarWithDelayWithoutMongo(): Mono<CarApi> {
+    fun insertCarWithDelay(): Mono<CarApi> {
         return Mono.fromCallable { logger.info("Inserting car with delay $DELAY") }
             .flatMap { Mono.just(CarApi(UUID.randomUUID().toString())) }
             .doOnError { logger.error("Processing error $it") }
@@ -20,7 +20,7 @@ class CarsEndpoint {
 
     companion object {
         val logger by logger()
-        const val DELAY : Long = 100
+        const val DELAY : Long = 1000
     }
 }
 

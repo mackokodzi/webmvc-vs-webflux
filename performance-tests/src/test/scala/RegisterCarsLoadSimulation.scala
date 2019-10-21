@@ -6,7 +6,7 @@ import scala.concurrent.duration.Duration
 class RegisterCarsLoadSimulation extends Simulation {
 
   private val baseUrl = "http://localhost:8090"
-  private val endpoint = "/cars"
+  private val endpoint = "/cars/deferred"
 
   private val users = System.getProperty("USERS", "1").toInt
 
